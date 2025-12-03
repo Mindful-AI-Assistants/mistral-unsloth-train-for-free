@@ -2,7 +2,19 @@
 
 
 
-#  [Unsloth]() — Fast Fine-tuning & Reinforcement Learning for LLMs
+
+
+##  Unsloth – Installation & Update (Portuguese Quick Guide)
+
+This section provides a **clean, copy-ready Portuguese translation** of the core installation and update instructions from the official Unsloth documentation.
+
+
+
+> 🔗 Source: [Unsloth – Install & Update](https://docs.unsloth.ai/get-started/install-and-update)
+
+
+
+<br><br>
 
 
 <br><br>
@@ -11,12 +23,16 @@
 [![Python](https://img.shields.io/badge/Python-≤3.13-blue)](#installation)
 [![Stars](https://img.shields.io/github/stars/unslothai/unsloth?style=social)](https://github.com/unslothai/unsloth)
 
+
 <br><br>
 
 
 
 
 > [!TIP]
+>
+>
+>
 >
 > * Fine-tuning & Reinforcement Learning for modern LLMs with **up to 2× faster training** and **70% less VRAM use**.
 >
@@ -49,257 +65,120 @@
 * [License](#-license)
 
 
-<br><br>
 
 
 <br><br>
 
-## Get Started
 
-**Beginner? Start here!**
-Perguntas mais comuns antes do seu primeiro fine-tune.
-
-👉 Pergunte também na comunidade: r/unsloth (Reddit)
+###  Instalação via Pip
 
 
-#
+<br>
 
-
-## Fine-tuning Guide
-
-Aprenda como treinar modelos passo a passo.
-Inclui: SFT, QLoRA, FP8 training e GRPO.
-
-<br><br>
-
-## Model Selection
-
-* Instruct vs Base
-* Tamanho ideal do dataset
-* Quando usar RAG vs Fine-tuning
-
-<br><br>
-
-
-## 📘 Tutorials
-
-* Fine-tuning DeepSeek
-* Parametrização para Gemma 3
-* Como rodar modelos localmente, via Ollama, GGUF, SGLang, vLLM
-
----
-
-# 🤔 FAQ
-
-* Quando fine-tunar?
-* Diferença entre SFT, DPO, GRPO
-* Como evitar OOM (out-of-memory)?
-
----
-
-# 📥 Installation
-
-## Linux / WSL
 
 ```bash
 pip install unsloth
 ```
 
-## Windows
+<br><br>
 
-*Requer PyTorch previamente instalado.*
 
-Guia completo: Windows Guide.
 
-## Docker
+### Atualizar para a última versão:
+
+
+<br>
 
 ```bash
-docker run -d -e JUPYTER_PASSWORD="mypassword" \
-  -p 8888:8888 -p 2222:22 \
-  -v $(pwd)/work:/workspace/work \
-  --gpus all \
-  unsloth/unsloth
+pip install --upgrade unsloth
 ```
 
----
 
-# 📈 Dataset Guide
+<br><br>
 
-* Como organizar dataset SFT
-* DPO vs SFT formats
-* Captura de dados
-* Boas práticas
 
----
 
-# 🛠 Requirements
 
-Compatível com:
+## 🐍 Instalação com venv (Ambiente Virtual)
 
-* NVIDIA GPUs (2018+)
-* AMD
-* Intel
-* CUDA Capability ≥ 7.0
 
----
+<br>
 
-# 🖥 Inference & Deployment
 
-* Export GGUF
-* Roda via llama.cpp
-* Roda via vLLM, SGLang, Ollama
-* Salvamento de checkpoints
+```bash
+python3 -m venv unsloth_env
+source unsloth_env/bin/activate     # Linux/macOS
+unsloth_env\Scripts\activate        # Windows
 
----
+pip install unsloth
+```
 
-# 🧠 LoRA Hyperparameters
 
-Comportamento dos parâmetros:
-r, alpha, target_modules, dropout, RSLORA, LoftQ, etc.
+<br><br>
 
----
 
-# ⚡ Quickstart — CLI
+### Google Colab (Recomendado)
 
-Exemplo de fine-tuning **gpt-oss-20b**:
+<br>
 
 ```python
-from unsloth import FastLanguageModel, FastModel
-from trl import SFTTrainer, SFTConfig
-from datasets import load_dataset
-
-max_seq_length = 2048
-dataset = load_dataset("json", data_files={"train": ".../unified_chip2.jsonl"}, split="train")
-
-model, tokenizer = FastModel.from_pretrained(
-    "unsloth/gpt-oss-20b",
-    max_seq_length=max_seq_length,
-    load_in_4bit=True,
-)
-
-model = FastLanguageModel.get_peft_model(
-    model,
-    r=16,
-    target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"],
-    lora_alpha=16,
-    lora_dropout=0,
-)
-
-trainer = SFTTrainer(
-    model=model,
-    train_dataset=dataset,
-    tokenizer=tokenizer,
-    args=SFTConfig(
-        max_seq_length=max_seq_length,
-        per_device_train_batch_size=2,
-        gradient_accumulation_steps=4,
-        max_steps=60,
-        logging_steps=1,
-    ),
-)
-
-trainer.train()
+!pip install unsloth
 ```
 
----
+<br>
 
-# 🌟 Mistral 3 Quickstart
-
-> **Nova seção solicitada — estilo idêntico ao README oficial**
-
-Treine **Mistral 3** (7B/8B/22B/large) usando QLoRA ou full-finetuning.
-
-## ▶️ Instalação
-
-```bash
-pip install unsloth
-```
-
-## ▶️ Carregar modelo Mistral 3
+### Depois, importe:
 
 ```python
 from unsloth import FastModel, FastLanguageModel
-
-model, tokenizer = FastModel.from_pretrained(
-    model_name="unsloth/mistral-3-8b",
-    max_seq_length=4096,
-    load_in_4bit=True,
-)
 ```
 
-## ▶️ Aplicar LoRA otimizado
 
-```python
-model = FastLanguageModel.get_peft_model(
-    model,
-    r=32,
-    lora_alpha=32,
-    lora_dropout=0,
-    target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"],
-)
-```
 
-## ▶️ Treinar
+<br><br>
 
-```python
-from trl import SFTTrainer, SFTConfig
 
-trainer = SFTTrainer(
-    model=model,
-    tokenizer=tokenizer,
-    train_dataset=dataset,
-    args=SFTConfig(
-        output_dir="mistral3-output",
-        per_device_train_batch_size=2,
-        gradient_accumulation_steps=4,
-        max_steps=120,
-        logging_steps=1,
-    ),
-)
 
-trainer.train()
-```
+## Instalação via Conda
 
-## ▶️ Exportar para GGUF
+```bash
+conda create --name unsloth_env \
+    python=3.11 \
+    pytorch-cuda=12.1 \
+    pytorch cudatoolkit xformers -c pytorch -c nvidia -c xformers -y
 
-```python
-model.save_pretrained("mistral3-gguf")
-```
-
----
-
-# 🦥 Unsloth News
-
-* FP8 Reinforcement Learning
-* DeepSeek OCR Fine-tuning
-* Novo Docker super otimizado
-* Suporte completo para TTS, Vision, GRPO, GSPO, DPO, ORPO…
-
----
-
-# 🥇 Performance Benchmarks
-
-Comparação Unsloth vs HuggingFace (FA2):
-
-* **2× mais rápido**
-* **Até 75% menos VRAM**
-* **Longest context: 340k tokens** (para GPUs 80GB)
-
----
-
-# 📜 Citation
-
-```bibtex
-@software{unsloth,
-  author = {Daniel Han, Michael Han and Unsloth team},
-  title = {Unsloth},
-  url = {http://github.com/unslothai/unsloth},
-  year = {2023}
-}
+conda activate unsloth_env
+pip install unsloth
 ```
 
 
 <br><br>
+
+
+
+## [Official Unsloth Notebooks]() (Tabela Completa)
+
+Aqui está uma tabela pronta para README com **todos os notebooks oficiais do Unsloth**, incluindo fine-tuning, QLoRA, visão, RL, Ministal 3 e modelos específicos:
+
+| Notebook                             | Descrição                                                | Link                                                                                                                                                                                                             |
+| ------------------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Beginner Start Here**              | Introdução, instalação, primeiros passos                 | [https://docs.unsloth.ai/get-started/beginner-start-here](https://docs.unsloth.ai/get-started/beginner-start-here)                                                                                               |
+| **Fine-tuning Llama-3 (QLoRA)**      | Fine-tuning padrão com LoRA/QLoRA                        | [https://colab.research.google.com/github/unslothai/notebooks/blob/main/examples/fine_tune_llama3.ipynb](https://colab.research.google.com/github/unslothai/notebooks/blob/main/examples/fine_tune_llama3.ipynb) |
+| **Ministral 3 Fine-tuning**          | Fine-tuning completo dos modelos Ministral 3 (com visão) | [https://docs.unsloth.ai/ministral-3-how-to-run-and-fine-tune](https://docs.unsloth.ai/ministral-3-how-to-run-and-fine-tune)                                                                                     |
+| **Vision Fine-tuning**               | Fine-tuning de modelos de visão                          | [https://docs.unsloth.ai/vision-fine-tuning](https://docs.unsloth.ai/vision-fine-tuning)                                                                                                                         |
+| **DeepSeek Fine-tuning**             | Treinar e rodar DeepSeek com Unsloth                     | [https://docs.unsloth.ai/deepseek-how-to-run-and-fine-tune](https://docs.unsloth.ai/deepseek-how-to-run-and-fine-tune)                                                                                           |
+| **Gemma 3 Fine-tuning**              | Tutorial oficial para Gemma 3                            | [https://docs.unsloth.ai/gemma-3-how-to-run-and-fine-tune](https://docs.unsloth.ai/gemma-3-how-to-run-and-fine-tune)                                                                                             |
+| **Qwen3 Fine-tuning**                | Treinar Qwen3 localmente com Unsloth                     | [https://docs.unsloth.ai/qwen3-how-to-run-and-fine-tune](https://docs.unsloth.ai/qwen3-how-to-run-and-fine-tune)                                                                                                 |
+| **Qwen3-VL Vision**                  | Fine-tuning multimodal                                   | [https://docs.unsloth.ai/qwen3-vl-how-to-run-and-fine-tune](https://docs.unsloth.ai/qwen3-vl-how-to-run-and-fine-tune)                                                                                           |
+| **gpt-oss Training**                 | Fine-tuning dos modelos gpt-oss                          | [https://docs.unsloth.ai/gpt-oss-how-to-run-and-fine-tune](https://docs.unsloth.ai/gpt-oss-how-to-run-and-fine-tune)                                                                                             |
+| **Reinforcement Learning (GRPO)**    | Treinar modelos de raciocínio                            | [https://docs.unsloth.ai/Tutorial-train-your-own-reasoning-model-with-grpo](https://docs.unsloth.ai/Tutorial-train-your-own-reasoning-model-with-grpo)                                                           |
+| **FP8 Reinforcement Learning**       | RL otimizado com FP8                                     | [https://docs.unsloth.ai/fp8-reinforcement-learning](https://docs.unsloth.ai/fp8-reinforcement-learning)                                                                                                         |
+| **Ultra Long Context (500K tokens)** | Fine-tuning com contextos gigantes                       | [https://docs.unsloth.ai/500k-context-length-fine-tuning](https://docs.unsloth.ai/500k-context-length-fine-tuning)                                                                                               |
+
+
+
+<br><br>
+
 
 
 ## 💌 [Let the data flow... Ping Me !](mailto:fabicampanari@proton.me)
