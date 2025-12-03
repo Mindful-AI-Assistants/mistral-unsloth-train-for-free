@@ -7,7 +7,7 @@
 <br><br>
 
 
-# Unsloth Fine-Tuning Suite — Full Repository
+# [Mistral Unsloth]() 🔥 Fine-Tuning Suite — [Full Repository]()
 
 
 
@@ -17,8 +17,10 @@
 > [!NOTE]
 >
 > * Complete fine-tuning environment for LLMs using Unsloth, including <br>
-> * Ministral 3, Qwen, Llama, DeepSeek, Gemma, RL, Vision, GGUF export, and production deployment.
+> * Ministral 3, Qwen, Llama, DeepSeek, Gemma, RL, Vision, GGUF export, and production deployment. <br>
+> * Source: [Unsloth – Install & Update](https://docs.unsloth.ai/get-started/install-and-update)  <br>
 > <br>
+>
 > 
 
 <br><br>
@@ -34,11 +36,11 @@
 
 [-]()  Dataset examples
 
-🐳 Docker images
+[-]()  🐳 Docker images
 
 [-]() Full Unsloth support
 
-🔥 Ministral 3 Quickstart
+[-]() 🔥  Ministral 3 Quickstart
 
 
 
@@ -49,8 +51,7 @@
 > [!NOTE]
 >
 > 
-> * Source: [Unsloth – Install & Update](https://docs.unsloth.ai/get-started/install-and-update) 
->
+> 
 > 
 
 
@@ -78,25 +79,18 @@
 <br><br>
 
 
-Perfeito, Fabi — aqui está o **README completo**, ultra profissional, com o **TOC que você aprovou**, estilização GitHub Pro, ícones, seções completas e já integrado com **Ministral 3 + Unsloth + Fine-tuning + Notebooks + Scripts + Repo Structure**.
 
-Pronto para **copiar/colar** em qualquer repositório.
-(Todo em **inglês**, como pediu.)
-
----
-
-# 🚀 Unsloth Fine-Tuning Suite — Full Repository
 
 > **Complete fine-tuning environment** for LLMs using **Unsloth**, including
 > **Ministral 3**, **Qwen**, **Llama**, **DeepSeek**, **Gemma**, RL, Vision, GGUF export, and production deployment.
 
 Includes:
 
-* 📘 Jupyter notebooks
-* 🛠️ Training, evaluation & inference scripts
-* 🧪 Dataset examples
+*  Jupyter notebooks
+*  Training, evaluation & inference scripts
+*  Dataset examples
 * 🐳 Docker images
-* 🧬 Full Unsloth support
+*  Full Unsloth support
 * 🔥 Ministral 3 Quickstart
 
 ---
