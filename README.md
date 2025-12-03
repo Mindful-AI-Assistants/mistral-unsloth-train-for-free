@@ -6,8 +6,31 @@
 
 <br><br>
 
+> [!NOTE]
+>
+> * Complete fine-tuning environment for LLMs using Unsloth, including <br>
+> * Ministral 3, Qwen, Llama, DeepSeek, Gemma, RL, Vision, GGUF export, and production deployment.
+> <br>
+> 
 
-#  Unsloth – Installation & Update (Portuguese Quick Guide)
+<br><br>
+
+
+## [Includes]():
+
+<br>
+
+[-]() Jupyter notebooks
+
+[-]()  Training, evaluation & inference scripts
+
+[-]()  Dataset examples
+
+🐳 Docker images
+
+[-]() Full Unsloth support
+
+🔥 Ministral 3 Quickstart
 
 
 
