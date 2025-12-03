@@ -16,9 +16,10 @@
 
 > [!NOTE]
 >
-> * Complete fine-tuning environment for LLMs using Unsloth, including <br>
-> * Ministral 3, Qwen, Llama, DeepSeek, Gemma, RL, Vision, GGUF export, and production deployment. <br>
-> * Source: [Unsloth – Install & Update](https://docs.unsloth.ai/get-started/install-and-update)  <br>
+> 
+>  [-]()  Complete fine-tuning environment for LLMs using Unsloth, including <br>
+>  [-]()  Ministral 3, Qwen, Llama, DeepSeek, Gemma, RL, Vision, GGUF export, and production deployment. <br>
+>  [-]()  Source: [Unsloth – Install & Update](https://docs.unsloth.ai/get-started/install-and-update)  <br>
 > <br>
 >
 > 
@@ -419,17 +420,11 @@ Common issues:
 
 # 💬 Community & Support
 
-* Reddit: r/unsloth
-* Docs: [https://docs.unsloth.ai](https://docs.unsloth.ai)
-* HuggingFace Models: [https://huggingface.co/unsloth](https://huggingface.co/unsloth)
+[-]() Reddit: r/unsloth
+[-]()  Docs: [https://docs.unsloth.ai](https://docs.unsloth.ai)
+[-]() HuggingFace Models: [https://huggingface.co/unsloth](https://huggingface.co/unsloth)
+[-]() [DISCORD]()
 
----
-
-# 📄 License
-
-MIT License (or change to your project license).
-
----
 
 
 
