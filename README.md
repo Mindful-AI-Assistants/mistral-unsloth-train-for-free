@@ -70,21 +70,7 @@
 <br><br>
 
 
-## [Includes]():
-
-*  Jupyter notebooks
-*  Training, evaluation & inference scripts
-*  Dataset examples
-* 🐳 Docker images
-*  Full Unsloth support
-* 🔥 Ministral 3 Quickstart
-
-
-
-<br><br>
-
-
-# 📚 Table of Contents
+## 📚 Table of Contents
 
 <br>
 
@@ -137,7 +123,8 @@
 
 This repository provides a **complete environment** for fine-tuning modern LLMs using **Unsloth**, with support for:
 
-<br>
+
+<br><br>
 
 
 *  Ministral 3 (all variants)
