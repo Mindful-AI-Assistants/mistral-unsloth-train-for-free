@@ -1,5 +1,3 @@
-
-
 """
 Toy training script to validate the training loop and environment quickly.
 Uses synthetic data so it is safe to run in CI or on local machines.
