@@ -121,19 +121,22 @@
 
 ## Introduction
 
-This repository provides a **complete environment** for fine-tuning modern LLMs using **Unsloth**, with support for:
+This repository provides a **complete environment** for **fine-tuning** modern **LLMs** using **Unsloth**, with support for:
 
 
 <br><br>
 
 
-*  Ministral 3 (all variants)
-*  Llama 3 / 3.1 / 3.2 / 3.3
-* DeepSeek V3 / R1
-* Qwen 3 / 2.5 / VL / Coder
-* Gemma 3
-* Phi models
-*  Reinforcement Learning (DPO, ORPO, GRPO, KTO)
+> [!IMPORTANT]
+>
+> * Ministral 3 (all variants)
+> *  
+> *  Llama 3 / 3.1 / 3.2 / 3.3
+> * DeepSeek V3 / R1
+> * Qwen 3 / 2.5 / VL / Coder
+> * Gemma 3
+> * Phi models
+> *  Reinforcement Learning (DPO, ORPO, GRPO, KTO)
 
 
 <br><br>
