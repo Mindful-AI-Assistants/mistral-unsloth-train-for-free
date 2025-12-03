@@ -34,13 +34,13 @@
 * [ Get Started](#-get-started)
 * [Fine-tuning Guide](#-fine-tuning-guide)
 * [ Model Selection](#-model-selection)
-* [📘 Tutorials](#-tutorials)
-* [🤔 FAQ](#-faq)
-* [📥 Installation](#-installation)
-* [📈 Dataset Guide](#-dataset-guide)
-* [🛠 Requirements](#-requirements)
-* [🖥 Inference & Deployment](#-inference--deployment)
-* [🧠 LoRA Hyperparameters](#-lora-hyperparameters)
+* [ Tutorials](#-tutorials)
+* [FAQ](#-faq)
+* [Installation](#-installation)
+* [ Dataset Guide](#-dataset-guide)
+* [ Requirements](#-requirements)
+* [ Inference & Deployment](#-inference--deployment)
+* [ LoRA Hyperparameters](#-lora-hyperparameters)
 * [⚡ Quickstart — CLI](#-quickstart--cli)
 * [ Mistral 3 Quickstart](#-mistral-3-quickstart)
 * [ Unsloth News](#-unsloth-news)
@@ -52,7 +52,9 @@
 <br><br>
 
 
-<br><br># 🚀 Get Started
+<br><br>
+
+## Get Started
 
 **Beginner? Start here!**
 Perguntas mais comuns antes do seu primeiro fine-tune.
