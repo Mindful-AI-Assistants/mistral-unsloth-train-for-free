@@ -7,9 +7,13 @@
 <br><br>
 
 
-# [***Fine-tuning Mistral-3 with Unsloth***]() 🔥  Professional Guide & Starter Scaffold
+# [**Fine-tuning Mistral-3 with Unsloth**]() 🔥  Professional Guide & Starter Scaffold
 
 
+<br><br>
+
+
+This repository provides a production-oriented, reproducible scaffold to fine-tune Mistral-family causal language models using PyTorch and the Hugging Face ecosystem, with guidance on integrating Unsloth for dataset curation.
 
 <br><br>
 
