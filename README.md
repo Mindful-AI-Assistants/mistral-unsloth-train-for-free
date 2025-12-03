@@ -15,12 +15,11 @@
 
 
 > [!NOTE]
->
 > 
 >  [-]()  Complete fine-tuning environment for LLMs using Unsloth, including <br>
 >  [-]()  Ministral 3, Qwen, Llama, DeepSeek, Gemma, RL, Vision, GGUF export, and production deployment. <br>
 >  [-]()  Source: [Unsloth – Install & Update](https://docs.unsloth.ai/get-started/install-and-update)  <br>
-> <br>
+>  <br>
 >
 > 
 
@@ -46,9 +45,8 @@
 
 
 
+<br><br><br>
 
-
-<br><br><br><br>
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](#license)
 [![Sponsor Mindful AI Assistants](https://img.shields.io/badge/Sponsor-Mindful%20AI%20%20Assistants-brightgreen?logo=GitHub)](https://github.com/sponsors/Mindful-AI-Assistants)
@@ -56,7 +54,7 @@
 
 
 
-<br><br><br><br>
+<br><br><br>
 
 
 
@@ -66,9 +64,10 @@
 > * **Complete fine-tuning environment** for LLMs using **Unsloth**, including <br>
 > * **Ministral 3**, **Qwen**, **Llama**, **DeepSeek**, **Gemma**, RL, Vision, GGUF export, and production deployment. <br>
 > <br>
+> 
 
 
-<br><br>
+<br><br><br>
 
 
 ## 📚 Table of Contents
@@ -117,7 +116,7 @@
 
 
 
-<br><br><br>
+<br><br>
 
 
 ## [Introduction]()
@@ -177,7 +176,7 @@ This repository provides a **complete environment** for **fine-tuning** modern *
 
 <br>
 
-### Pip Install
+### [Pip Install]()
 
 ```bash
 pip install unsloth
@@ -186,7 +185,7 @@ pip install unsloth
 <br><br>
 
 
-### Conda Install
+### C[onda Install]()
 
 ```bash
 conda create --name unsloth_env \
@@ -200,7 +199,8 @@ pip install unsloth
 
 <br><br>
 
-## Docker
+
+### [Docker]()
 
 ```bash
 docker pull unslothai/unsloth:latest
@@ -208,7 +208,8 @@ docker pull unslothai/unsloth:latest
 
 <br><br>
 
-## Windows Support
+
+## [Windows Support]()
 
 Windows works via:
 
@@ -219,20 +220,22 @@ Windows works via:
 
 <br><br>
 
-## Google Colab
+
+### [Google Colab]()
 
 Free ready-to-use notebooks:
-⚡️ [https://docs.unsloth.ai/get-started/beginner-start-here](https://docs.unsloth.ai/get-started/beginner-start-here)
+[https://docs.unsloth.ai/get-started/beginner-start-here](https://docs.unsloth.ai/get-started/beginner-start-here) ⚡️
 
 
 <br><br>
 
 
-## Fine-tuning Guide
+## [**Fine-tuning Guide**]()
 
 <br>
 
-## What Model Should I Use?
+
+### [What Model Should I Use ?]()
 
 * **Instruct models** → dialog, agents, chatbots
 * **Base models** → reasoning, RAG, retrieval, embeddings
@@ -243,9 +246,9 @@ Free ready-to-use notebooks:
 <br><br>
 
 
-## Dataset Structure
+## [Dataset Structure?]()
 
-Use the standard Unsloth chat template:
+***Use the standard Unsloth chat template***:
 
 <br>
 
@@ -262,9 +265,9 @@ Use the standard Unsloth chat template:
 <br><br>
 
 
-## LoRA Hyperparameters
+## L[oRA Hyperparameters?]()
 
-Recommended:
+***Recommended:***
 
 <br>
 
