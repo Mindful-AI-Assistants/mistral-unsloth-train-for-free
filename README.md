@@ -18,6 +18,16 @@ This repository provides a production-oriented, reproducible scaffold to fine-tu
 <br><br>
 
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](#license)
+[![Sponsor Mindful AI Assistants](https://img.shields.io/badge/Sponsor-Mindful%20AI%20%20Assistants-brightgreen?logo=GitHub)](https://github.com/sponsors/Mindful-AI-Assistants)
+[![Python](https://img.shields.io/badge/Python-≤3.13-blue)](#installation)
+
+
+
+<br><br><br>
+
+
+
 > [!NOTE]
 > 
 >  [-]()  Complete fine-tuning environment for LLMs using Unsloth, including <br>
@@ -52,13 +62,6 @@ This repository provides a production-oriented, reproducible scaffold to fine-tu
 <br><br><br>
 
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](#license)
-[![Sponsor Mindful AI Assistants](https://img.shields.io/badge/Sponsor-Mindful%20AI%20%20Assistants-brightgreen?logo=GitHub)](https://github.com/sponsors/Mindful-AI-Assistants)
-[![Python](https://img.shields.io/badge/Python-≤3.13-blue)](#installation)
-
-
-
-<br><br><br>
 
 
 
