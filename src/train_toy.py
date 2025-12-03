@@ -1,72 +1,114 @@
 """
-Toy training script to validate the training loop and environment quickly.
-Uses synthetic data so it is safe to run in CI or on local machines.
+Fine-tuning script using Hugging Face Transformers + Accelerate + PEFT (LoRA).
+This is a production-oriented example — adapt hyperparameters and dataset loading to your needs.
 
-Example:
-python src/train_toy.py --epochs 1 --batch-size 8 --device cpu
+Example (local small run):
+accelerate launch src/train_hf.py --model_name_or_path mistralai/mistral-3-small --dataset_path data/my_dataset.jsonl --output_dir outputs/test --per_device_train_batch_size 2 --num_train_epochs 1 --use_lora
 """
 
 import argparse
-import os
+from pathlib import Path
+
 import torch
-from torch.utils.data import DataLoader, Dataset
-from torch.optim import AdamW
-from torch.cuda.amp import autocast, GradScaler
-
-from model_toy import MinimalLM  # tiny model included in src/model_toy.py
-
-
-class RandomDataset(Dataset):
-    def __init__(self, vocab=50400, seq_len=64, n=512):
-        self.vocab = vocab
-        self.seq_len = seq_len
-        self.n = n
-
-    def __len__(self):
-        return self.n
-
-    def __getitem__(self, idx):
-        x = torch.randint(0, self.vocab, (self.seq_len,))
-        y = torch.roll(x, -1)
-        return x, y
+from datasets import load_dataset
+from transformers import AutoTokenizer, AutoModelForCausalLM, DataCollatorForLanguageModeling, get_scheduler
+from accelerate import Accelerator
+from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training, TaskType
 
 
-def train_epoch(model, loader, opt, scaler, device):
-    model.train()
-    total_loss = 0.0
-    for xb, yb in loader:
-        xb = xb.to(device)
-        yb = yb.to(device)
-        opt.zero_grad()
-        with autocast(enabled=(device != "cpu")):
-            logits = model(xb)
-            loss = torch.nn.functional.cross_entropy(logits.view(-1, logits.size(-1)), yb.view(-1))
-        scaler.scale(loss).backward()
-        scaler.step(opt)
-        scaler.update()
-        total_loss += loss.item()
-    return total_loss / len(loader)
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model_name_or_path", type=str, required=True)
+    parser.add_argument("--dataset_path", type=str, required=True, help="path to JSONL or HF dataset id")
+    parser.add_argument("--output_dir", type=str, default="outputs/finetune")
+    parser.add_argument("--per_device_train_batch_size", type=int, default=4)
+    parser.add_argument("--gradient_accumulation_steps", type=int, default=8)
+    parser.add_argument("--num_train_epochs", type=int, default=3)
+    parser.add_argument("--learning_rate", type=float, default=2e-4)
+    parser.add_argument("--max_seq_length", type=int, default=512)
+    parser.add_argument("--use_lora", action="store_true")
+    parser.add_argument("--lora_r", type=int, default=8)
+    parser.add_argument("--lora_alpha", type=int, default=32)
+    parser.add_argument("--lora_dropout", type=float, default=0.05)
+    parser.add_argument("--load_in_8bit", action="store_true")
+    parser.add_argument("--fp16", action="store_true")
+    return parser.parse_args()
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--epochs", type=int, default=1)
-    parser.add_argument("--batch-size", type=int, default=8)
-    parser.add_argument("--device", type=str, default="auto")
-    args = parser.parse_args()
+    args = parse_args()
+    accelerator = Accelerator(mixed_precision="fp16" if args.fp16 else "no")
+    device = accelerator.device
 
-    device = "cuda" if (args.device == "auto" and torch.cuda.is_available()) or args.device == "cuda" else "cpu"
-    model = MinimalLM(vocab_size=50400, d_model=128, n_layers=2, n_head=4, d_ff=512).to(device)
-    ds = RandomDataset(vocab=50400, seq_len=64, n=256)
-    loader = DataLoader(ds, batch_size=args.batch_size, shuffle=True)
-    opt = AdamW(model.parameters(), lr=1e-4)
-    scaler = GradScaler(enabled=(device != "cpu"))
+    # Tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=True)
+    tokenizer.pad_token = tokenizer.eos_token
 
-    os.makedirs("checkpoints/toy", exist_ok=True)
-    for epoch in range(args.epochs):
-        loss = train_epoch(model, loader, opt, scaler, device)
-        print(f"Epoch {epoch} loss {loss:.4f}")
-        torch.save(model.state_dict(), f"checkpoints/toy/model_epoch{epoch}.pt")
+    # Dataset: support local JSONL or HF dataset id
+    dataset_path = Path(args.dataset_path)
+    if dataset_path.exists():
+        dataset = load_dataset("json", data_files=str(dataset_path), split="train")
+    else:
+        dataset = load_dataset(args.dataset_path, split="train")
+
+    def tokenize_function(example):
+        return tokenizer(example["text"], truncation=True, max_length=args.max_seq_length)
+
+    tokenized = dataset.map(tokenize_function, batched=True, remove_columns=dataset.column_names)
+    data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
+
+    # Model load
+    model_kwargs = {"trust_remote_code": True}
+    if args.load_in_8bit:
+        model_kwargs.update({"load_in_8bit": True, "device_map": "auto"})
+    model = AutoModelForCausalLM.from_pretrained(args.model_name_or_path, **model_kwargs)
+
+    if args.load_in_8bit:
+        # prepare model if using 8-bit training
+        model = prepare_model_for_kbit_training(model)
+
+    if args.use_lora:
+        lora_config = LoraConfig(
+            r=args.lora_r,
+            lora_alpha=args.lora_alpha,
+            target_modules=["q_proj", "v_proj", "k_proj", "o_proj"],
+            lora_dropout=args.lora_dropout,
+            bias="none",
+            task_type=TaskType.CAUSAL_LM,
+        )
+        model = get_peft_model(model, lora_config)
+
+    # Accelerator + Dataloaders
+    train_dataloader = torch.utils.data.DataLoader(tokenized, batch_size=args.per_device_train_batch_size, shuffle=True, collate_fn=data_collator)
+
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
+    model, optimizer, train_dataloader = accelerator.prepare(model, optimizer, train_dataloader)
+
+    total_steps = len(train_dataloader) * args.num_train_epochs
+    lr_scheduler = get_scheduler("linear", optimizer=optimizer, num_warmup_steps=100, num_training_steps=total_steps)
+
+    model.train()
+    for epoch in range(args.num_train_epochs):
+        for step, batch in enumerate(train_dataloader):
+            with accelerator.accumulate(model):
+                outputs = model(**batch)
+                loss = outputs.loss
+                accelerator.backward(loss)
+                optimizer.step()
+                lr_scheduler.step()
+                optimizer.zero_grad()
+            if step % 50 == 0:
+                print(f"Epoch {epoch} step {step} loss {loss.item():.4f}")
+
+        # Save checkpoint (PEFT saves adapter weights small)
+        output_dir = Path(args.output_dir) / f"epoch-{epoch}"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        if args.use_lora:
+            model.save_pretrained(output_dir)
+        else:
+            accelerator.wait_for_everyone()
+            unwrapped_model = accelerator.unwrap_model(model)
+            unwrapped_model.save_pretrained(output_dir)
 
 
 if __name__ == "__main__":
