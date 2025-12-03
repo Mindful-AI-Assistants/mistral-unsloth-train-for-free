@@ -1,34 +1,28 @@
-# Minimal inference example using a Hugging Face tokenizer and either the MinimalLM scaffold or HF model.
+"""
+Minimal inference helper. Loads a HF model or local checkpoint and runs greedy/sampling generation.
+"""
 import argparse
+from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
-from transformers import AutoTokenizer
-from model import MinimalLM, load_hf_model
 
-def greedy_generate(model, tokenizer, prompt, max_new_tokens=32, device="cpu"):
-    tokens = tokenizer(prompt, return_tensors="pt")["input_ids"].to(device)
+def generate(model, tokenizer, prompt, max_new_tokens=128, do_sample=False, temperature=0.7, top_k=50, top_p=0.95, device="cpu"):
+    inputs = tokenizer(prompt, return_tensors="pt").to(device)
+    model.to(device)
     model.eval()
     with torch.no_grad():
-        logits = model(tokens)
-        next_token = torch.argmax(logits[:, -1, :], dim=-1, keepdim=True)
-        out = torch.cat([tokens, next_token], dim=1)
-        return tokenizer.decode(out[0], skip_special_tokens=True)
+        out = model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=do_sample, temperature=temperature, top_k=top_k, top_p=top_p)
+    return tokenizer.decode(out[0], skip_special_tokens=True)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--prompt", type=str, default="Once upon a time")
-    parser.add_argument("--hf_model", type=str, default="")
-    parser.add_argument("--device", type=str, default="auto")
+    parser.add_argument("--model", type=str, default="gpt2", help="HF model id or local path")
+    parser.add_argument("--prompt", type=str, default="Hello world")
+    parser.add_argument("--device", type=str, default="cpu")
     args = parser.parse_args()
 
-    device = "cuda" if (args.device=="auto" and torch.cuda.is_available()) or args.device=="cuda" else "cpu"
-
-    tokenizer = AutoTokenizer.from_pretrained("gpt2", use_fast=True)
-    if args.hf_model:
-        model = load_hf_model(args.hf_model, device=device)
-    else:
-        model = MinimalLM(vocab_size=tokenizer.vocab_size, d_model=256, n_layers=2, n_head=4, d_ff=1024)
-    model = model.to(device)
-    print(greedy_generate(model, tokenizer, args.prompt, device=device))
+    tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
+    model = AutoModelForCausalLM.from_pretrained(args.model)
+    print(generate(model, tokenizer, args.prompt, device=args.device))
 
 if __name__ == "__main__":
     main()
