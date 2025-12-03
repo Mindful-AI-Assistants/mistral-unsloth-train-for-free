@@ -1,4 +1,7 @@
+
+
 # Example training config (toy) — adjust paths and hyperparams for real runs
+
 train:
   epochs: 3
   batch_size: 8
