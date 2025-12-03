@@ -1,5 +1,3 @@
-
-
 # Example training config (toy) — adjust paths and hyperparams for real runs
 train:
   epochs: 3
