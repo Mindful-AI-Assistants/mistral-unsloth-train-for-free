@@ -410,3 +410,19 @@ ollama create mymodel -f ollama_modelfile
 ```
 
 <br><br>
+
+
+## [vLLM]()
+
+
+<br>
+
+```bash
+python -m vllm.entrypoints.api_server --model ./output
+```
+
+
+
+<br><br>
+
+<br>
