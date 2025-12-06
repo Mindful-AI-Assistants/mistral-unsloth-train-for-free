@@ -15,13 +15,11 @@
 
 This repository provides a production-oriented, reproducible scaffold to fine-tune Mistral-family causal language models using PyTorch and the Hugging Face ecosystem, with guidance on integrating Unsloth for dataset curation.
 
-<br><br>
+<br><br><br>
 
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](#license)
-[![Sponsor Mindful AI Assistants](https://img.shields.io/badge/Sponsor-Mindful%20AI%20%20Assistants-brightgreen?logo=GitHub)](https://github.com/sponsors/Mindful-AI-Assistants)
-[![Python](https://img.shields.io/badge/Python-≤3.13-blue)](#installation)
 
+### <p align="center"> [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](#license) [![Sponsor Mindful AI Assistants](https://img.shields.io/badge/Sponsor-Mindful%20AI%20%20Assistants-brightgreen?logo=GitHub)](https://github.com/sponsors/Mindful-AI-Assistants) [![Python](https://img.shields.io/badge/Python-≤3.13-blue)](#installation)
 
 
 <br><br><br>
