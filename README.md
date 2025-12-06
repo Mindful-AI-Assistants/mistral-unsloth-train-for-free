@@ -81,49 +81,35 @@ Includes ready-to-use notebooks, training scripts, dataset examples, Docker, exp
 
 <br>
 
-<!--
 
-* [Introduction](#-introduction)
-* [Features](#-features)
-* [Installation](#-installation)
+* [Introduction](#introduction)
+* [Features](#features)
+* [Installation](#installation)
 
-  * [Pip Install](#pip-install)
-  * [Conda Install](#conda-install)
+  * [Pip](#pip)
+  * [Conda](#conda)
   * [Docker](#docker)
-  * [Windows Support](#windows-support)
+  * [Windows](#windows)
   * [Google Colab](#google-colab)
-* [Fine-tuning Guide](#-fine-tuning-guide)
+* [Fine-tuning Guide](#fine-tuning-guide)
 
-  * [What Model Should I Use?](#what-model-should-i-use)
+  * [Model Selection](#model-selection)
   * [Dataset Structure](#dataset-structure)
   * [LoRA Hyperparameters](#lora-hyperparameters)
   * [Vision Fine-tuning](#vision-fine-tuning)
-*  [Ministral 3 Quickstart](#-ministral-3-quickstart)
-
-  * [Available Models](#available-models)
-  * [Training Notebook](#training-notebook)
-  * [Inference Examples](#inference-examples)
-* [ Notebooks](#-notebooks)
-
-  * [Beginner Notebook](#beginner-notebook)
-  * [Ministral 3 Notebook](#ministral-3-notebook)
-  * [RL / Reasoning Notebooks](#rl--reasoning-notebooks)
-* [Scripts](#️-scripts)
-
-  * [Training Script](#training-script)
-  * [Evaluation Script](#evaluation-script)
-  * [Inference Script](#inference-script)
-* [Repository Structure](#-repository-structure)
-* [Deployment](#-deployment)
+* [Ministral-3 Quickstart](#ministral-3-quickstart)
+* [Notebooks](#notebooks)
+* [Scripts](#scripts)
+* [Repository Structure](#repository-structure)
+* [Deployment & Export](#deployment--export)
 
   * [Ollama](#ollama)
   * [vLLM](#vllm)
-  * [GGUF Export](#gguf-export)
-* [⚠️ Troubleshooting](#️-troubleshooting)
-* [ Community & Support](#-community--support)
-* [License](#-license)
+  * [GGUF](#gguf)
+* [Troubleshooting](#troubleshooting)
+* [Community & Support](#community--support)
+* [License](#license)
 
--->
 
 <br><br>
 
