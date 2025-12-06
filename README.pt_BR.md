@@ -425,7 +425,7 @@ python -m vllm.entrypoints.api_server --model ./output
 <br><br>
 
 
-## [Exportar para GGUF()
+## [Exportar para GGUF]()
 
 <br>
 
@@ -436,7 +436,7 @@ unsloth convert --to-gguf output/
 <br><br>
 
 
-## ❗ Resolução de Problemas()
+## ❗ [Resolução de Problemas()
 
 <br>
 
@@ -445,6 +445,22 @@ unsloth convert --to-gguf output/
 * OOM → reduza o rank do LoRA
 
 * Incompatibilidade do Tokenizer → use matching safetensors
+
+
+<br><br>
+
+
+## [Comunidade & Suporte]()
+
+<br>
+
+* Reddit: r/unsloth
+
+* [Docs oficiais](https://docs.unsloth.ai)
+
+* [Modelos - Hugging Face](https://huggingface.co/unsloth)
+
+* [Discord oficial]()
 
 
 <br><br>
