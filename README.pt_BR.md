@@ -381,8 +381,22 @@ scripts/infer.py
 <br>
 
 
-
-
+```javascript
+.
+├── README.md
+├── notebooks/
+│   ├── 00_beginner_start_here.ipynb
+│   ├── ministral3_finetune.ipynb
+│   └── rl/
+├── scripts/
+│   ├── train.py
+│   ├── infer.py
+│   └── eval.py
+├── data/
+│   └── samples/
+└── docker/
+    └── Dockerfile
+```
 
 
 <br><br>
