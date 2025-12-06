@@ -113,9 +113,9 @@ Este repositório consolida um ambiente robusto e padronizado para:
 * **Ambiente de desenvolvimento reprodutível (Docker + Conda)**
 
 
-<br>
+<br><br>
 
-### [Suporte completo para:]()
+## [Suporte completo para:]()
 
 * **Ministral-3 (todos os tamanhos)**
 * Llama 3.x
@@ -125,10 +125,25 @@ Este repositório consolida um ambiente robusto e padronizado para:
 * Phi 3
 * Vision LLMs
 
+
 <br><br>
 
+##  [Features]()
 
 
+* ⚡ *Até 2× mais rápido* que frameworks tradicionais
+*  *70% menos VRAM* com QLoRA
+*  Suporte completo para **Fine-tuning em Visão**
+*  Suporte para **RL (GRPO / DPO / ORPO / KTO)**
+*  *Contexto ultra-longo* (até 500K tokens)
+*  Exportação para **GGUF**, **Ollama**, **vLLM**, **safetensors**
+*  Docker + scripts padronizados
+*  Notebooks para Colab / uso local
+*  CPU, CUDA 11.8 / 12.1, AMD ROCm
+
+
+
+<br><br>
 
 
 
