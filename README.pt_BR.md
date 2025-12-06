@@ -157,3 +157,17 @@ pip install unsloth
 ```
 
 <br><br>
+
+### 🐍 [Conda Install]()
+
+<br>
+
+```bash
+conda create --name unsloth_env python=3.11 -y
+conda activate unsloth_env
+pip install unsloth
+```
+
+<br><br>
+
+
