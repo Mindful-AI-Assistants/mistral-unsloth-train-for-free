@@ -266,4 +266,17 @@ target_modules = ["q_proj", "v_proj", "k_proj", "o_proj"]
 <br><br>
 
 
+## [Vision Fine-tuning()
 
+### [Suporte para:()
+
+<br>
+
+* Ministral-3 Vision
+
+* Qwen-VL
+
+* Gemma Vision
+
+
+<br><br>
