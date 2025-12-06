@@ -19,6 +19,6 @@ Inclui notebooks prontos, scripts de treino, exemplos de datasets, Docker, expor
 <br><ce>
 
 
-## Indí
+## Indíce
 
 
