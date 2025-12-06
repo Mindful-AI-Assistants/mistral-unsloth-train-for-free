@@ -294,4 +294,14 @@ target_modules = ["q_proj", "v_proj", "k_proj", "o_proj"]
 
 * Ministral-3 14B (cabe no Colab Free com QLoRA)
 
+
+<br><br>
+
+## [Notebook oficial do repo]()
+
+
+```bash
+notebooks/ministral3_finetune.ipynb
+```
+
 <br><br>
