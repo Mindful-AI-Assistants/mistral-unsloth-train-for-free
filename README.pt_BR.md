@@ -342,7 +342,7 @@ model = FastLanguageModel.get_peft_model(model)
 
 ## [Oficial Unsloth Notebooks]() 
 
-
+<br>
 
 | Notebook                             | Descrição                                                | Link                                                                                                                                                                                                             |
 | ------------------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -359,3 +359,30 @@ model = FastLanguageModel.get_peft_model(model)
 | **FP8 Reinforcement Learning**       | RL otimizado com FP8                                     | [https://docs.unsloth.ai/fp8-reinforcement-learning](https://docs.unsloth.ai/fp8-reinforcement-learning)                                                                                                         |
 | **Ultra Long Context (500K tokens)** | Fine-tuning com contextos gigantes                       | [https://docs.unsloth.ai/500k-context-length-fine-tuning](https://docs.unsloth.ai/500k-context-length-fine-tuning)                                                                                               |
 
+
+<br><br>
+
+## [Scripts]()
+
+<br>
+
+```bash
+scripts/train.py
+scripts/eval.py
+scripts/infer.py
+```
+
+
+<br><br>
+
+
+## [Estrutura do Repositório]()
+
+<br>
+
+
+
+
+
+
+<br><br>
