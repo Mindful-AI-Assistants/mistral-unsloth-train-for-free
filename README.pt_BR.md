@@ -5,7 +5,7 @@
 <br>
 
 
-# <p align="center"> Fine-tuning Ministral-3 with Unsloth — Complete Guide
+# <p align="center"> Fine-tuning Ministral-3 with [Unsloth]() — Guia Completo
 ### <p align="center"> Treino acelerado, otimizado e barato usando Unsloth + Ministral-3.
 
 <br><br>
