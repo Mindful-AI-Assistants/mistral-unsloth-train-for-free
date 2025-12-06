@@ -433,5 +433,18 @@ python -m vllm.entrypoints.api_server --model ./output
 unsloth convert --to-gguf output/
 ```
 
-<br<br>
+<br><br>
 
+
+## ❗ Resolução de Problemas()
+
+<br>
+
+* Incompatibilidade de CUDA
+
+* OOM → reduza o rank do LoRA
+
+* Incompatibilidade do Tokenizer → use matching safetensors
+
+
+<br><br>
