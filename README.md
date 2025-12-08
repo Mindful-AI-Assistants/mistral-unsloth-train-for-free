@@ -137,6 +137,26 @@ This repository consolidates a robust and standardized environment for:
 * Vision LLMs
 
 
+<br><br>
+
+##  [Features]()
+
+
+* ⚡ *Up to 2× faster* than traditional frameworks
+*  *70% less VRAM* with QLoRA
+*  Full support for **Vision Fine-tuning**
+*  Support for **RL (GRPO / DPO / ORPO / KTO)**
+*  *Ultra-long context* (up to 500K tokens)
+*  Export to **GGUF**, **Ollama**, **vLLM**, **safetensors**
+*  Docker + standardized scripts
+*  Notebooks for Colab / local use
+*  CPU, CUDA 11.8 / 12.1, AMD ROCm
+
+
+<br><br>
+
+
+
 
 
 
