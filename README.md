@@ -81,37 +81,31 @@ Includes ready-to-use notebooks, training scripts, dataset examples, Docker, exp
 
 <br>
 
-* [Introdução](#introducao)
-* [Recursos](#recursos)
-* [Instalação](#instalacao)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+  - [Pip](#pip)
+  - [Conda](#conda)
+  - [Docker](#docker)
+  - [Windows](#windows)
+  - [Google Colab](#google-colab)
+- [Fine-tuning Guide](#fine-tuning-guide)
+  - [Model Selection](#model-selection)
+  - [Dataset Structure](#dataset-structure)
+  - [LoRA Hyperparameters](#lora-hyperparameters)
+  - [Vision Fine-tuning](#vision-fine-tuning)
+- [Ministral-3 Quickstart](#ministral-3-quickstart)
+- [Notebooks](#notebooks)
+- [Scripts](#scripts)
+- [Repository Structure](#repository-structure)
+- [Deployment & Export](#deployment--export)
+  - [Ollama](#ollama)
+  - [vLLM](#vllm)
+  - [GGUF](#gguf)
+- [Troubleshooting](#troubleshooting)
+- [Community & Support](#community--support)
+- [License](#license)
 
-  * [Pip](#pip)
-  * [Conda](#conda)
-  * [Docker](#docker)
-  * [Windows](#windows)
-  * [Google Colab](#google-colab)
-
-* [Guia de Fine-tuning](#guia-de-fine-tuning)
-
-  * [Seleção de Modelo](#selecao-de-modelo)
-  * [Estrutura do Dataset](#estrutura-do-dataset)
-  * [Hiperparâmetros LoRA](#hiperparametros-lora)
-  * [Fine-tuning de Visão](#fine-tuning-de-visao)
-
-* [Ministral-3 Quickstart](#ministral-3-quickstart)
-* [Notebooks](#notebooks)
-* [Scripts](#scripts)
-* [Estrutura do Repositório](#estrutura-do-repositorio)
-
-* [Deployment & Export](#deployment--export)
-
-  * [Ollama](#ollama)
-  * [vLLM](#vllm)
-  * [GGUF](#gguf)
-
-* [Solução de Problemas](#solucao-de-problemas)
-* [Comunidade & Suporte](#comunidade--suporte)
-* [Licença](#licenca)
 
 <br><br>
 
