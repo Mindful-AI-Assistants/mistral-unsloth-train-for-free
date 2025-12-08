@@ -220,7 +220,7 @@ https://docs.unsloth.ai/get-started/beginner-start-here
 
 <br>
 
-| [Tarefa]()                | Modelo recomendado |
+| [Tarefa]()                | [Modelo recomendado]() |
 | --------------------- | ------------------ |
 | [Chat / Agentes]()        | Instruct           |
 | [Raciocínio]()            | Base               |
