@@ -141,6 +141,8 @@ This repository consolidates a robust and standardized environment for:
 
 ##  [Features]()
 
+<br>
+
 
 * ⚡ *Up to 2× faster* than traditional frameworks
 *  *70% less VRAM* with QLoRA
@@ -225,6 +227,8 @@ Official notebooks:
 
 ## [Fine-tuning Guide]()
 
+<br>
+
 ### [Which model should I choose?]()
 
 <br>
@@ -236,9 +240,12 @@ Official notebooks:
 | [Small dataset (<3k)]()  | Instruct          |
 | [Large dataset (>20k)]() | Base              |
 
+
 <br><br>
 
 ## [Dataset Structure]()
+
+<br>
 
 ### [Default format (JSONL):]()
 
