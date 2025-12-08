@@ -111,6 +111,47 @@ Includes ready-to-use notebooks, training scripts, dataset examples, Docker, exp
 
 
 
+## [Introduction]()
+
+
+This repository consolidates a robust and standardized environment for:
+
+* **Efficient fine-tuning with LoRA/QLoRA**
+* **Reinforcement Learning (GRPO, DPO, ORPO, KTO)**
+* **Vision Training (VLMs)**
+* **Export to GGUF and deployment on CPU/GPU**
+* **Optimized inference with Unsloth and vLLM**
+* **Reproducible development environment (Docker + Conda)**
+
+
+<br><br>
+
+## [Full support for:]()
+
+* **Ministral-3 (all sizes)**
+* Llama 3.x
+* Qwen 2.5 / 3 / VL
+* Gemma 3
+* DeepSeek V3 / R1
+* Phi 3
+* Vision LLMs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!--
