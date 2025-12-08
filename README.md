@@ -158,7 +158,7 @@ This repository consolidates a robust and standardized environment for:
 
 ## [Installation]()
 
-###  [Pip Install]()
+### ⚡️ [Pip Install]()
 
 <br>
 
