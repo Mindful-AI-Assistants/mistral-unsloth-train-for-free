@@ -1,6 +1,6 @@
 <br>
 
- \[[🇧🇷 Português](README.pt_BR.md)\] \[**[🇺🇸 English](README.md)**\]
+ \[[🇧🇷 Portuguese](README.pt_BR.md)\] \[**[🇺🇸 English](README.md)**\]
 
 
 
