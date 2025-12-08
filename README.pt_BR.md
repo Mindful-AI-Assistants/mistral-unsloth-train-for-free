@@ -102,8 +102,11 @@ Inclui notebooks prontos, scripts de treino, exemplos de datasets, Docker, expor
 
 ## [Introdução]()
 
+<br>
 
 Este repositório consolida um ambiente robusto e padronizado para:
+
+<br>
 
 * **Fine-tuning eficiente com LoRA/QLoRA**
 * **Aprendizado por Reforço (GRPO, DPO, ORPO, KTO)**
@@ -116,6 +119,8 @@ Este repositório consolida um ambiente robusto e padronizado para:
 <br><br>
 
 ## [Suporte completo para:]()
+
+<br>
 
 * **Ministral-3 (todos os tamanhos)**
 * Llama 3.x
@@ -130,6 +135,7 @@ Este repositório consolida um ambiente robusto e padronizado para:
 
 ##  [Features]()
 
+<br>
 
 * ⚡ *Até 2× mais rápido* que frameworks tradicionais
 *  *70% menos VRAM* com QLoRA
@@ -147,6 +153,8 @@ Este repositório consolida um ambiente robusto e padronizado para:
 
 
 ## [Instalação]()
+
+<br>
 
 ### ⚡ [Pip Install]()
 
@@ -215,6 +223,8 @@ https://docs.unsloth.ai/get-started/beginner-start-here
 
 ##  [Guia de Fine-tuning]()
 
+<br>
+
 
 ###  [Qual modelo escolher ?]()
 
@@ -234,6 +244,8 @@ https://docs.unsloth.ai/get-started/beginner-start-here
 
 ## [Estrutura do Dataset]()
 
+<br>
+
 ### [Formato padrão (JSONL):]()
 
 <br>
@@ -251,6 +263,8 @@ https://docs.unsloth.ai/get-started/beginner-start-here
 
 ## [Hiperparâmetros LoRA]()
 
+<br>
+
 ### [Recomendação inicial:]()
 
 <br>
@@ -267,6 +281,8 @@ target_modules = ["q_proj", "v_proj", "k_proj", "o_proj"]
 
 ## [Vision Fine-tuning]()
 
+<br>
+
 ### [Suporte para:]()
 
 <br>
@@ -282,6 +298,8 @@ target_modules = ["q_proj", "v_proj", "k_proj", "o_proj"]
 
 
 ## 🔥 [Ministral-3 Quickstart]()
+
+<br>
 
 ###  [Exemplos de modelos suportados]()
 
@@ -360,6 +378,7 @@ model = FastLanguageModel.get_peft_model(model)
 
 
 <br><br>
+
 
 ## [Scripts]()
 
@@ -465,8 +484,6 @@ unsloth convert --to-gguf output/
 <br><br>
 
 ## [Licença]()
-
-<br>
 
 Apache 2.0
 
